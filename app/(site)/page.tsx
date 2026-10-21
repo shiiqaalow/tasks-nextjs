@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 
 const HomePage = async () => {
   const user = await getCurrentUser();
-    if (!user) redirect("/login");
+    if (!user) redirect("/signin");
   const signedIn = Boolean(user);
     const result = await getAllTasks(String(user.id));
     const tasks = result.success ? (result.data ?? []) : [];

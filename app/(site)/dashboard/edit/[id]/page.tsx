@@ -8,7 +8,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
   const user = await getCurrentUser();
-  if (!user?.id) redirect("/login");
+  if (!user?.id) redirect("/signin");
 
   const task = await getTaskById(user.id, id);
   if (!task.success || !task.data) notFound();
