@@ -4,9 +4,11 @@ import HowItWorks from "../components/home/HowItWorks";
 import CallToAction from "../components/home/CallToAction";
 import { getCurrentUser } from "../lib/token/current-user";
 import { getAllTasks } from "../lib/task/task";
+import { redirect } from "next/navigation";
 
 const HomePage = async () => {
   const user = await getCurrentUser();
+    if (!user) redirect("/login");
   const signedIn = Boolean(user);
     const result = await getAllTasks(String(user.id));
     const tasks = result.success ? (result.data ?? []) : [];
@@ -15,7 +17,7 @@ const HomePage = async () => {
     <>
       <Hero signedIn={signedIn} />
       <Features />
-      <HowItWorks initialTasks={tasks}/>
+      <HowItWorks />
       <CallToAction signedIn={signedIn} />
     </>
   );

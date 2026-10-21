@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { User } from "@/app/types/user";
-// import { getInitials } from "@/app/lib/initials";
 
 type MobileNavProps = {
   links: { label: string; href: string }[];
@@ -31,7 +30,7 @@ const MobileNav = ({ links, user }: MobileNavProps) => {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
+      <SheetTrigger >
         <Button
           variant="outline"
           size="icon"
@@ -96,7 +95,7 @@ const MobileNav = ({ links, user }: MobileNavProps) => {
               </div>
             </Link>
           ) : (
-            <Button asChild className="h-12 w-full rounded-xl">
+            <Button  className="h-12 w-full rounded-xl">
               <Link href="/signin" onClick={() => setOpen(false)}>
                 Sign in
               </Link>

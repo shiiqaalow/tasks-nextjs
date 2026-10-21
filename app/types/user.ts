@@ -1,13 +1,13 @@
 export type User = {
     id: string
-    name: string
-    email: string
+    name: string | null
+    email: string | null
     password?: string
     phone?: number
     address?: string 
-    image: string
-    isActive?: boolean
-    isVerified?: boolean
+    image: string | null
+    isActive?: boolean | null
+    isVerified?: boolean | null
     verificationToken?: string
     verificationTokenExpiresAt?: Date
     passwordResetToken?: string

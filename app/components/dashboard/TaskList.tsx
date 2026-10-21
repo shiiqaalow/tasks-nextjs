@@ -57,7 +57,8 @@ const TaskList = ({ tasks, user }: TaskListProps) => {
                 </p>
               ) : (
                 columnTasks.map((task) => {
-                  const creator = user?.name.split(" ")[0] ?? "Unknown";
+                  const fullName = user?.name ?? "Unknown";
+                  const creator = fullName.split(" ")[0];
 
                   return (
                     <Card
@@ -87,7 +88,7 @@ const TaskList = ({ tasks, user }: TaskListProps) => {
                           <Avatar className="size-7 shrink-0">
                             <AvatarImage
                               src={user?.image ?? undefined}
-                              alt={user.name}
+                              alt={fullName}
                               referrerPolicy="no-referrer"
                             />
                             <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">

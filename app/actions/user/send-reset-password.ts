@@ -1,7 +1,6 @@
 'use server'
 import { sendRestPasswordCode } from "../../lib/user/auth";
-import { getString } from "../../lib/utils";
-import { ServerResponseStatus } from "../../types/user";
+import { getString, ServerResponseStatus } from "../../lib/utils";
 
 export const sendResetPasswordCodeAction = async (
   _prev: ServerResponseStatus,

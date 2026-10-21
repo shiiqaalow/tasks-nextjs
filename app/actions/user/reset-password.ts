@@ -2,8 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { updatePassword } from "../../lib/user/auth";
-import { getString } from "../../lib/utils";
-import { ServerResponseStatus } from "../../types/user";
+import { getString, ServerResponseStatus } from "../../lib/utils";
 
 export const resetPasswordAction = async (
   _prevData: ServerResponseStatus,

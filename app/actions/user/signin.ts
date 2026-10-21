@@ -2,8 +2,7 @@
 import { redirect } from "next/navigation"
 import {signin } from "../../lib/user/auth"
 import { createSession } from "../../lib/token/session"
-import { getString } from "../../lib/utils"
-import { ServerResponseStatus } from "../../types/user"
+import { getString, ServerResponseStatus } from "../../lib/utils"
 
 export const signinAction = async (_prevData: ServerResponseStatus, formData: FormData): Promise<ServerResponseStatus> => {
 

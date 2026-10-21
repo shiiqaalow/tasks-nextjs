@@ -1,8 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getString } from "../../lib/utils";
-import { ServerResponseStatus } from "../../types/user";
+import { getString, ServerResponseStatus } from "../../lib/utils";
 import { verifyEmail } from "../../lib/user/auth";
 
 export const verifyEmailAction = async (
