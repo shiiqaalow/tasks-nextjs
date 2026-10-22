@@ -1,4 +1,5 @@
-// app/(site)/dashboard/[id]/edit/page.tsx
+export const dynamic = "force-dynamic"
+
 import { notFound, redirect } from "next/navigation";
 import { getCurrentUser } from "@/app/lib/token/current-user";
 import { getTaskById } from "@/app/lib/task/task";
