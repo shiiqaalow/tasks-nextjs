@@ -1,6 +1,6 @@
 import { Collection, Db, MongoClient } from "mongodb"
 
-const uri = process.env.MONGO_DEV_URI || 'fsfafa'
+const uri = process.env.NODE_ENV !== 'production' ?  process.env.MONGO_DEV_URI : process.env.MONGO_PRO_URI || ''
 if(!uri) {
     throw new Error('Database connection not found, make sure you`r connected with your database')
 }
