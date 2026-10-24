@@ -6,7 +6,7 @@ async function main() {
   try {
     const res = await mailtrapClient.send({
       from: sender,
-      to: [{ email: "shiiqaalow99@gmail.com" }],
+      to: [{ email: "devshiiqaalow@gmail.com" }],
       subject: "Mailtrap test",
       text: "If you see this, sending works.",
     });

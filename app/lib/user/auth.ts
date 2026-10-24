@@ -44,7 +44,7 @@ export const signup = async (
     const verificationToken = randomInt(100000, 1000000).toString();
 
     // Hash verification token
-    // const verificationTokenHash = await bcrypt.hash(verificationToken, 10);
+    const verificationTokenHash = await bcrypt.hash(verificationToken, 10);
 
     // Set 15 minutes verificationTokenExpiry
     const verificationTokenExpiry = new Date(Date.now() + 15 * 60 * 1000); // 15min
@@ -60,7 +60,7 @@ export const signup = async (
       image: data.image,
       isVerified: false,
       isActive: false,
-      verificationToken: verificationToken,
+      verificationToken: verificationTokenHash,
       verificationTokenExpiresAt: verificationTokenExpiry,
       createdAt: data.createdAt ?? now,
       updatedAt: data.updatedAt ?? now,
@@ -268,9 +268,9 @@ export const verifyEmail = async (
       };
     }
 
-    // const isTokenMatched = await bcrypt.compare(code, user.verificationToken);
+    const isTokenMatched = await bcrypt.compare(code, user.verificationToken);
 
-    if (code !== user.verificationToken) {
+    if (!isTokenMatched) {
       return {
         success: false,
         status: 400,
